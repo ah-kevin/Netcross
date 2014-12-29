@@ -17,6 +17,7 @@
       <column name="DESCR" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <column name="CREATIME" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
       <column name="STARTIME" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="COST_TYPE" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
       <primary-key name="PRIMARY" columns="ID"/>
     </table>
   </data-source>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="mydatasource" class="org.apache.commons.dbcp.BasicDataSource">
+              <property name="username" value="sq_kbjwdh">
+              </property>
+              <property name="password" value="sta6023728">
+              </property>
+              <property name="driverClassName" value="com.mysql.jdbc.Driver">
+              </property>
+              <property name="url" value="jdbc:mysql://114.80.153.70:3306/test?useUnicode=true&amp;characterEncoding=UTF-8">
+              </property>
+       </bean>
+       <!--sqlsessionfactorybean-->
+       <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+              <property name="dataSource" ref="mydatasource">
+              </property>
+              <property name="mapperLocations" value="classpath:org/hf520/netctoss/entity/*.xml">
+              </property>
+       </bean>
+       <!--根据MapperDao生成Dao对象实例-->
+       <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+              <property name="basePackage" value="org.hf520.netctoss"/>
+              <property name="annotationClass" value="org.hf520.netctoss.annotation.MyBatis"/>
+       </bean>
+</beans>
