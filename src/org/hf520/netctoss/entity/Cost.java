@@ -13,10 +13,19 @@ public class Cost implements Serializable {
     private Integer base_duration;
     private Double base_cost;
     private Double unit_cost;
-    private String status;
+    private Boolean status;
     private String descr;
     private Date creatime;
     private Date startime;
+    private String costType;
+
+    public String getCostType() {
+        return costType;
+    }
+
+    public void setCostType(String costType) {
+        this.costType = costType;
+    }
 
     public Integer getId() {
         return id;
@@ -58,11 +67,11 @@ public class Cost implements Serializable {
         this.unit_cost = unit_cost;
     }
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

@@ -6,4 +6,11 @@
     <select id="findAll" resultType="org.hf520.netctoss.entity.Cost">
       SELECT * FROM  cost ORDER BY ID
     </select>
+    <delete id="deleteCost" parameterType="int">
+        DELETE  FROM  cost WHERE ID=#{ID}
+    </delete>
+    <insert id="saveCost" parameterType="org.hf520.netctoss.entity.Cost">
+INSERT  INTO  cost (ID,NAME,BASE_DURATION,BASE_COST,UNIT_COST,STATUS,DESCR,CREATIME,STARTIME,COST_TYPE)
+VALUES (NULL,#{name},#{base_duration},#{base_cost},#{unit_cost},0,#{descr},now(),null,#{cost_type})
+    </insert>
 </mapper>

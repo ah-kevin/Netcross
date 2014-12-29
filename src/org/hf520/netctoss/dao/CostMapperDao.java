@@ -11,4 +11,6 @@ import java.util.List;
 @MyBatis
 public interface CostMapperDao {
     public List<Cost> findAll();
+    public void deleteCost(int id);
+    public void saveCost(Cost cost);
 }

@@ -1,8 +1,10 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>达内－NetCTOSS</title>
+        <title>NetCTOSS</title>
         <link type="text/css" rel="stylesheet" media="all" href="../styles/global.css" />
         <link type="text/css" rel="stylesheet" media="all" href="../styles/global_color.css" />
         <script language="javascript" type="text/javascript">
@@ -20,8 +22,11 @@
                 document.getElementById("operate_result_info").style.display = "block";
             }
             //删除
-            function deleteFee() {
+            function deleteFee(id) {
                 var r = window.confirm("确定要删除此资费吗？");
+                if(r){
+                    window.location="fee_delete.from?id="+id;
+                }
                 document.getElementById("operate_result_info").style.display = "block";
             }
         </script>        
@@ -39,7 +44,7 @@
                 <li><a href="../index.html" class="index_off"></a></li>
                 <li><a href="../role/role_list.html" class="role_off"></a></li>
                 <li><a href="../admin/admin_list.html" class="admin_off"></a></li>
-                <li><a href="../fee/fee_list.html" class="fee_on"></a></li>
+                <li><a href="../fee/fee_list.jsp" class="fee_on"></a></li>
                 <li><a href="../account/account_list.html" class="account_off"></a></li>
                 <li><a href="../service/service_list.html" class="service_off"></a></li>
                 <li><a href="../bill/bill_list.html" class="bill_off"></a></li>
@@ -59,7 +64,7 @@
                         <input type="button" value="基费" class="sort_asc" onclick="sort(this);" />
                         <input type="button" value="时长" class="sort_asc" onclick="sort(this);" />
                     </div>
-                    <input type="button" value="增加" class="btn_add" onclick="location.href='fee_add.html';" />
+                    <input type="button" value="增加" class="btn_add" onclick="location.href='toAdd.from';" />
                 </div> 
                 <!--启用操作的操作提示-->
                 <div id="operate_result_info" class="operate_success">
@@ -79,34 +84,28 @@
                             <th>开通时间</th>
                             <th class="width50">状态</th>
                             <th class="width200"></th>
-                        </tr>                      
+                        </tr>
+                        <c:forEach items="${costs}" var="c">
                         <tr>
-                            <td>1</td>
-                            <td><a href="fee_detail.html">包 20 小时</a></td>
-                            <td>20 小时</td>
-                            <td>24.50 元</td>
-                            <td>3.00 元/小时</td>
-                            <td>2013/01/01 00:00:00</td>
-                            <td></td>
-                            <td>暂停</td>
-                            <td>                                
+                            <td>${c.id}</td>
+                            <td><a href=" ">${c.name}</a></td>
+                            <td>${c.base_duration} 小时</td>
+                            <td>${c.base_cost} 元</td>
+                            <td>${c.unit_cost} 元/小时</td>
+                            <td>${c.creatime}</td>
+                            <td>${c.startime}</td>
+                            <td>${c.status=="1"?"暂停":"开通"}</td>
+                            <td>
+                                <%--暂停状态才允许用下面几个按钮操作--%>
+                                <c:if test='${c.status=="1"}'>
                                 <input type="button" value="启用" class="btn_start" onclick="startFee();" />
                                 <input type="button" value="修改" class="btn_modify" onclick="location.href='fee_modi.html';" />
-                                <input type="button" value="删除" class="btn_delete" onclick="deleteFee();" />
+                                <input type="button" value="删除" class="btn_delete" onclick="deleteFee(${c.id});" />
+                                </c:if>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><a href="fee_detail.html">包 40 小时</a></td>
-                            <td>40 小时</td>
-                            <td>40.50 元</td>
-                            <td>3.00 元/小时</td>
-                            <td>2013/01/21 00:00:00</td>
-                            <td>2013/01/23 00:00:00</td>
-                            <td>开通</td>
-                            <td>                                
-                            </td>
-                        </tr>
+                            </tr>
+                        </c:forEach>
+
                     </table>
                     <p>业务说明：<br />
                     1、创建资费时，状态为暂停，记载创建时间；<br />
@@ -129,8 +128,8 @@
         </div>
         <!--主要区域结束-->
         <div id="footer">
-            <p>[源自北美的技术，最优秀的师资，最真实的企业环境，最适用的实战项目]</p>
-            <p>版权所有(C)加拿大达内IT培训集团公司 </p>
+            <p>[源自hf520]</p>
+            <p>hf520版权所有(C)</p>
         </div>
     </body>
 </html>
