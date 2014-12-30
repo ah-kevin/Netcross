@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/fee/fee_add.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/fee/fee_list.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/fee" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/fee/fee_modi.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/fee" />
       </map>
     </option>
   </component>

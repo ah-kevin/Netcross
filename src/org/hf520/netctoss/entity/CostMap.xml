@@ -11,6 +11,19 @@
     </delete>
     <insert id="saveCost" parameterType="org.hf520.netctoss.entity.Cost">
 INSERT  INTO  cost (ID,NAME,BASE_DURATION,BASE_COST,UNIT_COST,STATUS,DESCR,CREATIME,STARTIME,COST_TYPE)
-VALUES (NULL,#{name},#{base_duration},#{base_cost},#{unit_cost},0,#{descr},now(),null,#{cost_type})
+VALUES (NULL,#{name},#{base_duration},#{base_duration},#{unit_cost},0,#{descr},now(),null,#{cost_type})
     </insert>
+    <select id="findById" parameterType="int" resultType="org.hf520.netctoss.entity.Cost">
+    SELECT * FROM cost WHERE  id=#{id}
+    </select>
+    <update id="updateCost" parameterType="org.hf520.netctoss.entity.Cost">
+        UPDATE cost SET NAME=#{name},base_duration=#{base_duration},base_cost=#{base_duration},unit_cost=#{unit_cost},descr=#{descr},
+        cost_type=#{cost_type} where id=#{id}
+    </update>
+    <select id="findPage" resultType="org.hf520.netctoss.entity.Cost" parameterType="org.hf520.netctoss.entity.Page">
+        SELECT * FROM COST ORDER BY ID  LIMIT #{begin},#{pageSize};
+    </select>
+    <select id="findRows" resultType="int">
+        SELECT  count(*) FROM cost
+    </select>
 </mapper>

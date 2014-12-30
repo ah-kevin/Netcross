@@ -99,7 +99,7 @@
                                 <%--暂停状态才允许用下面几个按钮操作--%>
                                 <c:if test='${c.status=="1"}'>
                                 <input type="button" value="启用" class="btn_start" onclick="startFee();" />
-                                <input type="button" value="修改" class="btn_modify" onclick="location.href='fee_modi.html';" />
+                                <input type="button" value="修改" class="btn_modify" onclick="location.href='toUpdate.from?id=${c.id}';" />
                                 <input type="button" value="删除" class="btn_delete" onclick="deleteFee(${c.id});" />
                                 </c:if>
                             </td>
@@ -116,13 +116,35 @@
                 </div>
                 <!--分页-->
                 <div id="pages">
-        	        <a href="#">上一页</a>
-                    <a href="#" class="current_page">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">下一页</a>
+                    <c:choose>
+                        <c:when test="${page.page>1}">
+                            <a href="fee_list.from?page=${page.page-1}">上一页</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a>上一页</a>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <c:forEach var="i" begin="1" end="${page.totalPage}">
+                        <c:choose>
+                                <c:when test="${i==page.page}">
+                                    <a href="fee_list.from?page=${i}"  class="current_page">${i}</a>
+                                </c:when>
+                            <c:otherwise>
+                                <a href="fee_list.from?page=${i}" >${i}</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+
+                    <c:choose>
+                        <c:when test="${page.page<page.totalPage}">
+                            <a href="fee_list.from?page=${page.page+1}">下一页</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a>下一页</a>
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
             </form>
         </div>
