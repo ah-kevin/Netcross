@@ -9,9 +9,9 @@
     <delete id="deleteCost" parameterType="int">
         DELETE  FROM  cost WHERE ID=#{ID}
     </delete>
-    <insert id="saveCost" parameterType="org.hf520.netctoss.entity.Cost">
-INSERT  INTO  cost (ID,NAME,BASE_DURATION,BASE_COST,UNIT_COST,STATUS,DESCR,CREATIME,STARTIME,COST_TYPE)
-VALUES (NULL,#{name},#{base_duration},#{base_duration},#{unit_cost},0,#{descr},now(),null,#{cost_type})
+    <insert id="saveCost" parameterType="org.hf520.netctoss.entity.Cost" keyProperty="id" useGeneratedKeys="true">
+INSERT  INTO  cost (NAME,BASE_DURATION,BASE_COST,UNIT_COST,STATUS,DESCR,CREATIME,STARTIME,COST_TYPE)
+VALUES (#{name},#{base_duration},#{base_duration},#{unit_cost},0,#{descr},now(),null,#{cost_type})
     </insert>
     <select id="findById" parameterType="int" resultType="org.hf520.netctoss.entity.Cost">
     SELECT * FROM cost WHERE  id=#{id}

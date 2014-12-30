@@ -41,10 +41,10 @@
         <!--导航区域开始-->
         <div id="navi">                        
             <ul id="menu">
-                <li><a href="../login/index.html" class="index_off"></a></li>
+                <li><a href="../login/index.jsp" class="index_off"></a></li>
                 <li><a href="../role/role_list.html" class="role_off"></a></li>
                 <li><a href="../admin/admin_list.html" class="admin_off"></a></li>
-                <li><a href="../fee/fee_list.jsp" class="fee_on"></a></li>
+                <li><a href="../fee/fee_list.from" class="fee_on"></a></li>
                 <li><a href="../account/account_list.html" class="account_off"></a></li>
                 <li><a href="../service/service_list.html" class="service_off"></a></li>
                 <li><a href="../bill/bill_list.html" class="bill_off"></a></li>

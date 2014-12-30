@@ -14,6 +14,17 @@ public class AdminInfo {
     private String email;
     private Date enrolldate;
 
+
+    private String code;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -28,9 +28,9 @@
                 </tr>
                 <tr>
                     <td class="login_info">验证码：</td>
-                    <td class="width70"><input name="" type="text" class="width70" /></td>
-                    <td><img src="/images/valicode.jpg" alt="验证码" title="点击更换" /></td>
-                    <td><span class="required">验证码错误</span></td>              
+                    <td class="width70"><input name="code" type="text" class="width70" /></td>
+                    <td ><img src="/login/getCode.from" alt="验证码" title="点击更换" /></td>
+                    <td ><span class="required">${code_error}</span></td>
                 </tr>            
                 <tr>
                     <td></td>
