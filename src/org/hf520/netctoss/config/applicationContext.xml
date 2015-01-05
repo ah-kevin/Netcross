@@ -5,13 +5,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
        <bean id="mydatasource" class="org.apache.commons.dbcp.BasicDataSource">
-              <property name="username" value="sq_kbjwdh">
+              <property name="username" value="root">
               </property>
-              <property name="password" value="sta6023728">
+              <property name="password" value="890728">
               </property>
               <property name="driverClassName" value="com.mysql.jdbc.Driver">
               </property>
-              <property name="url" value="jdbc:mysql://114.80.153.70:3306/sq_kbjwdh?useUnicode=true&amp;characterEncoding=UTF-8">
+              <property name="url" value="jdbc:mysql://localhost:3306/sq_kbjwdh?useUnicode=true&amp;characterEncoding=UTF-8">
               </property>
        </bean>
        <!--sqlsessionfactorybean-->

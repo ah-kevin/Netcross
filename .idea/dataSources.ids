@@ -48,4 +48,77 @@
       <primary-key name="PRIMARY" columns="empno"/>
     </table>
   </data-source>
+  <data-source name="MySQL - sq_kbjwdh@localhost" uuid="9234f3a2-8af3-4ee1-82dd-d55fa54ce699">
+    <database-info product="MySQL" version="5.5.38" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="sq_kbjwdh"/>
+    <table name="admininfo" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="admin_code" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="telephone" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DATE" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+    </table>
+    <table name="command" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="17" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+    </table>
+    <table name="command_content" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="content" sqlType="VARCHAR" precision="2048" scale="0" nullable="true" jdbcType="12"/>
+      <column name="command_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cost" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="BASE_DURATION" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="BASE_COST" sqlType="DECIMAL" precision="7" scale="2" nullable="true" jdbcType="3"/>
+      <column name="UNIT_COST" sqlType="DECIMAL" precision="7" scale="4" nullable="true" jdbcType="3"/>
+      <column name="STATUS" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="DESCR" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CREATIME" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="STARTIME" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="COST_TYPE" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="dept" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="deptno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dname" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="loc" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="deptno"/>
+    </table>
+    <table name="emp" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="empno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="ename" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="job" sqlType="VARCHAR" precision="9" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mgr" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="hiredate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="sal" sqlType="DOUBLE" precision="7" scale="2" nullable="true" jdbcType="8"/>
+      <column name="comm" sqlType="DOUBLE" precision="7" scale="2" nullable="true" jdbcType="8"/>
+      <column name="deptno" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="empno"/>
+    </table>
+    <table name="message" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5Li76ZSu" autoIncrement="true"/>
+      <column name="COMMAND" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12" remarks="5oyH5Luk5ZCN56ew"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12" remarks="5o+P6L+w"/>
+      <column name="CONTENT" sqlType="VARCHAR" precision="2048" scale="0" nullable="true" jdbcType="12" remarks="5YaF5a65"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+    </table>
+    <table name="user" schema="" catalog="sq_kbjwdh" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
 </component>
