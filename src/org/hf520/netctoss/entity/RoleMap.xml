@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.hf520.netctoss.dao.RoleMapperDao">
+    <select id="findAll" resultMap="roleMap">
+-- 等值连接 加了left outer join已左边为组
+          SELECT r.ID,r.NAME, rp.role_id,rp.privilege_id FROM role r  LEFT OUTER JOIN role_privilege rp ON (r.id=rp.role_id);
+    </select>
+    
+    <resultMap id="roleMap" type="org.hf520.netctoss.entity.Role">
+        <id property="id" column="ID"></id>
+        <result property="name" column="NAME"></result>
+        <collection property="pris" javaType="arraylist" ofType="org.hf520.netctoss.entity.RolePrivilege">
+            <result property="role_id" column="role_id"></result>
+            <result property="privilege_id" column="privilege_id"></result>
+        </collection>
+    </resultMap>
+</mapper>
