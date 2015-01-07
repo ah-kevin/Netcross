@@ -2,13 +2,13 @@
 <application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
 
 	<classpath>
-		<dir name="E:/java/Netcross/out/production/Netcross">
+		<dir name="D:/maven/Netcross/out/production/Netcross">
 		</dir>
 	</classpath>
 
 	<web>
 		<link target="/">
-			<dir name="E:/java/Netcross/web">
+			<dir name="D:/maven/Netcross/web">
 			</dir>
 		</link>
 	</web>
