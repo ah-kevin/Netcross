@@ -30,6 +30,8 @@
        <!--Spring Mvc-->
        <context:component-scan base-package="org.hf520.netctoss"/>
        <mvc:annotation-driven/>
+       <!--用Resutful拦截的静态资源js.css 放过去-->
+       <mvc:default-servlet-handler/>
 
        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
               <property name="prefix" value="/WEB-INF/jsp/">

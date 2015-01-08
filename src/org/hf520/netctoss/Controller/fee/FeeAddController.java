@@ -4,6 +4,7 @@ import org.hf520.netctoss.dao.CostMapperDao;
 import org.hf520.netctoss.entity.Cost;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 
@@ -20,16 +21,16 @@ public class FeeAddController {
         this.dao = dao;
     }
 
-    @RequestMapping("/toAdd")
+    @RequestMapping(value = "/toAdd",method = RequestMethod.GET)
     public String toADD(){
         return "fee/fee_add";
     }
     //对应/fee/add.from请求,将表单参数封装成cost对象传入
-    //jsp表单中组件name属性要与Cost中属性一致ρ
-    @RequestMapping("/add")
+    //jsp表单中组件name属性要与Cost中属性   一致ρ
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String add(Cost cost){
         dao.saveCost(cost);
         System.out.println(cost.getId());
-        return "redirect:/fee/fee_list.from";
+        return "redirect:/fee/list/1";
     }
 }

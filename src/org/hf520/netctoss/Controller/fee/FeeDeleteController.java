@@ -2,8 +2,10 @@ package org.hf520.netctoss.Controller.fee;
 
 import org.hf520.netctoss.dao.CostMapperDao;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -20,12 +22,15 @@ public class FeeDeleteController {
         this.dao = dao;
     }
 
-    @RequestMapping("/fee_delete")
-    public String execute(@RequestParam(value = "id",required = false) Integer id){
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    @ResponseBody
+    public boolean execute(@PathVariable("id") Integer id){
+        System.out.println("------d----");
     if (id!=null){
         //调用mapperDao的delete
         dao.deleteCost(id);
     }
-        return "redirect:/fee/fee_list.from";
+        //return "redirect:/fee/fee_list.from";
+        return true;
     }
 }

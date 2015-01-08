@@ -5,8 +5,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>NetCTOSS</title>
-        <link type="text/css" rel="stylesheet" media="all" href="../styles/global.css" />
-        <link type="text/css" rel="stylesheet" media="all" href="../styles/global_color.css" />
+        <link type="text/css" rel="stylesheet" media="all" href="/styles/global.css" />
+        <link type="text/css" rel="stylesheet" media="all" href="/styles/global_color.css" />
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
         <script language="javascript" type="text/javascript">
             //排序按钮的点击事件
             function sort(btnObj) {
@@ -25,7 +26,16 @@
             function deleteFee(id) {
                 var r = window.confirm("确定要删除此资费吗？");
                 if(r){
-                    window.location="fee_delete.from?id="+id;
+//                    window.location="fee_delete.from?id="+id;
+                    $.ajax({
+                        url:"/fee/"+id,
+                        type:"delete",
+                        success: function (ok) {
+                                if(ok){
+                                    window.location="/fee/list/1";
+                                }
+                        }
+                    })
                 }
                 document.getElementById("operate_result_info").style.display = "block";
             }
@@ -34,24 +44,24 @@
     <body>
         <!--Logo区域开始-->
         <div id="header">
-            <img src="../images/logo.png" alt="logo" class="left"/>
+            <img src="/images/logo.png" alt="logo" class="left"/>
             <a href="#">[退出]</a>            
         </div>
         <!--Logo区域结束-->
         <!--导航区域开始-->
         <div id="navi">                        
             <ul id="menu">
-                <li><a href="../login/index.jsp" class="index_off"></a></li>
-                <li><a href="../role/role_list.html" class="role_off"></a></li>
-                <li><a href="../admin/admin_list.html" class="admin_off"></a></li>
-                <li><a href="../fee/fee_list.from" class="fee_on"></a></li>
-                <li><a href="../account/account_list.html" class="account_off"></a></li>
-                <li><a href="../service/service_list.html" class="service_off"></a></li>
-                <li><a href="../bill/bill_list.html" class="bill_off"></a></li>
-                <li><a href="../report/report_list.html" class="report_off"></a></li>
-                <li><a href="../user/user_info.html" class="information_off"></a></li>
-                <li><a href="../user/user_modi_pwd.html" class="password_off"></a></li>
-            </ul>            
+                <li><a href="/login/index.jsp" class="index_off"></a></li>
+                <li><a href="/role/role_list.html" class="role_off"></a></li>
+                <li><a href="/admin/admin_list.html" class="admin_off"></a></li>
+                <li><a href="/fee/fee_list.from" class="fee_on"></a></li>
+                <li><a href="/account/account_list.html" class="account_off"></a></li>
+                <li><a href="/service/service_list.html" class="service_off"></a></li>
+                <li><a href="/bill/bill_list.html" class="bill_off"></a></li>
+                <li><a href="/report/report_list.html" class="report_off"></a></li>
+                <li><a href="/user/user_info.html" class="information_off"></a></li>
+                <li><a href="/user/user_modi_pwd.html" class="password_off"></a></li>
+            </ul>
         </div>
         <!--导航区域结束-->
         <!--主要区域开始-->
@@ -64,13 +74,13 @@
                         <input type="button" value="基费" class="sort_asc" onclick="sort(this);" />
                         <input type="button" value="时长" class="sort_asc" onclick="sort(this);" />
                     </div>
-                    <input type="button" value="增加" class="btn_add" onclick="location.href='toAdd.from';" />
+                    <input type="button" value="增加" class="btn_add" onclick="location.href='../toAdd';" />
                 </div> 
                 <!--启用操作的操作提示-->
                 <div id="operate_result_info" class="operate_success">
-                    <img src="../images/close.png" onclick="this.parentNode.style.display='none';" />
+                    <img src="/images/close.png" onclick="this.parentNode.style.display='none';" />
                     删除成功！
-                </div>    
+                </div>
                 <!--数据区域：用表格展示数据-->     
                 <div id="data">            
                     <table id="datalist">
@@ -99,7 +109,7 @@
                                 <%--暂停状态才允许用下面几个按钮操作--%>
                                 <c:if test='${c.status=="1"}'>
                                 <input type="button" value="启用" class="btn_start" onclick="startFee();" />
-                                <input type="button" value="修改" class="btn_modify" onclick="location.href='toUpdate.from?id=${c.id}';" />
+                                <input type="button" value="修改" class="btn_modify" onclick="location.href='../${c.id}/toEdit';" />
                                 <input type="button" value="删除" class="btn_delete" onclick="deleteFee(${c.id});" />
                                 </c:if>
                             </td>
@@ -118,7 +128,7 @@
                 <div id="pages">
                     <c:choose>
                         <c:when test="${page.page>1}">
-                            <a href="fee_list.from?page=${page.page-1}">上一页</a>
+                            <a href="${page.page-1}">上一页</a>
                         </c:when>
                         <c:otherwise>
                             <a>上一页</a>
@@ -128,17 +138,17 @@
                     <c:forEach var="i" begin="1" end="${page.totalPage}">
                         <c:choose>
                                 <c:when test="${i==page.page}">
-                                    <a href="fee_list.from?page=${i}"  class="current_page">${i}</a>
+                                    <a href="${i}"  class="current_page">${i}</a>
                                 </c:when>
                             <c:otherwise>
-                                <a href="fee_list.from?page=${i}" >${i}</a>
+                                <a href="${i}" >${i}</a>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
 
                     <c:choose>
                         <c:when test="${page.page<page.totalPage}">
-                            <a href="fee_list.from?page=${page.page+1}">下一页</a>
+                            <a href="${page.page+1}">下一页</a>
                         </c:when>
                         <c:otherwise>
                             <a>下一页</a>

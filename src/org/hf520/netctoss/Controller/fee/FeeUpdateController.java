@@ -4,8 +4,9 @@ import org.hf520.netctoss.dao.CostMapperDao;
 import org.hf520.netctoss.entity.Cost;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 
@@ -22,17 +23,17 @@ public class FeeUpdateController {
         this.dao = dao;
     }
 
-    @RequestMapping("/toUpdate")
-    public String toUpdate(@RequestParam(value = "id",required = false) Integer id,Model model){
+    @RequestMapping("/{id}/toEdit")
+    public String toUpdate(@PathVariable("id") Integer id,Model model){
         Cost cost =dao.findById(id);
         model.addAttribute("cost",cost);
         return "fee/fee_modi";
     }
 
-    @RequestMapping("/updateCost")
+    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
     public String updateCost(Cost cost){
         //获取更新进度,调用dao
         dao.updateCost(cost);
-        return "redirect:/fee/fee_list.from";
+        return "redirect:/fee/list/1";
     }
 }

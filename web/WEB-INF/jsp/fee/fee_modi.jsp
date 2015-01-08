@@ -6,8 +6,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>NetCTOSS</title>
-    <link type="text/css" rel="stylesheet" media="all" href="../styles/global.css" />
-    <link type="text/css" rel="stylesheet" media="all" href="../styles/global_color.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="/styles/global.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="/styles/global_color.css" />
     <script language="javascript" type="text/javascript">
         //保存结果的提示
         function showResult() {
@@ -59,30 +59,30 @@
 <body>
 <!--Logo区域开始-->
 <div id="header">
-    <img src="../images/logo.png" alt="logo" class="left" />
+    <img src="/images/logo.png" alt="logo" class="left" />
     <a href="#">[退出]</a>
 </div>
 <!--Logo区域结束-->
 <!--导航区域开始-->
 <div id="navi">
     <ul id="menu">
-        <li><a href="../login/index.html" class="index_off"></a></li>
-        <li><a href="../role/role_list.html" class="role_off"></a></li>
-        <li><a href="../admin/admin_list.html" class="admin_off"></a></li>
-        <li><a href="../fee/fee_list.from" class="fee_on"></a></li>
-        <li><a href="../account/account_list.html" class="account_off"></a></li>
-        <li><a href="../service/service_list.html" class="service_off"></a></li>
-        <li><a href="../bill/bill_list.html" class="bill_off"></a></li>
-        <li><a href="../report/report_list.html" class="report_off"></a></li>
-        <li><a href="../user/user_info.html" class="information_off"></a></li>
-        <li><a href="../user/user_modi_pwd.html" class="password_off"></a></li>
+        <li><a href="/login/index.html" class="index_off"></a></li>
+        <li><a href="/role/role_list.html" class="role_off"></a></li>
+        <li><a href="/admin/admin_list.html" class="admin_off"></a></li>
+        <li><a href="/fee/fee_list.from" class="fee_on"></a></li>
+        <li><a href="/account/account_list.html" class="account_off"></a></li>
+        <li><a href="/service/service_list.html" class="service_off"></a></li>
+        <li><a href="/bill/bill_list.html" class="bill_off"></a></li>
+        <li><a href="/report/report_list.html" class="report_off"></a></li>
+        <li><a href="/user/user_info.html" class="information_off"></a></li>
+        <li><a href="/user/user_modi_pwd.html" class="password_off"></a></li>
     </ul>
 </div>
 <!--导航区域结束-->
 <!--主要区域开始-->
 <div id="main">
     <div id="save_result_info" class="save_success">保存成功！</div>
-    <form:form commandName="cost" cssClass="main_form" action="updateCost.from" method="post">
+    <form:form commandName="cost" cssClass="main_form" action="/fee/${cost.id}" method="PUT">
         <div class="text_info clearfix"><span>资费ID：</span></div>
         <div class="input_info">
             <from:input path="id" cssClass="readonly" readonly="true" /></div>

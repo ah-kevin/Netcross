@@ -61,10 +61,9 @@
                 return false;
             }
             $.ajax({
-                        type: "POST",
-                        url: "checkName.from",
+                        type: "get",
+                        url: "check/"+v_name,
                         async: "false",
-                        data: {"name": v_name},
                         success: function (ok) {
                             if (ok) {
                                 $("#name_error").text("资费名可用");
@@ -75,11 +74,11 @@
                                 $("#name_error").addClass("error_msg");
                                 name_falg = false;
                             }
-
                         }
                     }
             )
-            return name_falg;
+            return name_falg
+        }
             //                return false;//阻止提交
             //                return true;//允许提交 }
 
@@ -111,7 +110,7 @@
 <!--主要区域开始-->
 <div id="main">
     <div id="save_result_info" class="save_fail">保存失败，资费名称重复！</div>
-    <form action="add.from" onsubmit="return doSubmit();" method="post" class="main_form">
+    <form action="/fee/add" onsubmit="return doSubmit();" method="post" class="main_form">
         <div class="text_info clearfix"><span>资费名称：</span></div>
         <div class="input_info">
             <input type="text" class="width300" name="name" id="name" />
