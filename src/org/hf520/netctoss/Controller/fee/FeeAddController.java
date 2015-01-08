@@ -25,7 +25,7 @@ public class FeeAddController {
         return "fee/fee_add";
     }
     //对应/fee/add.from请求,将表单参数封装成cost对象传入
-    //jsp表单中组件name属性要与Cost中属性一致
+    //jsp表单中组件name属性要与Cost中属性一致ρ
     @RequestMapping("/add")
     public String add(Cost cost){
         dao.saveCost(cost);

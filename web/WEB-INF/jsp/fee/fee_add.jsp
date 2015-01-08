@@ -81,8 +81,7 @@
             )
             return name_falg;
             //                return false;//阻止提交
-            //                return true;//允许提交
-        }
+            //                return true;//允许提交 }
 
     </script>
 </head>
