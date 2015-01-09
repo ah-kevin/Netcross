@@ -4,6 +4,7 @@ import org.hf520.netctoss.dao.CostMapperDao;
 import org.hf520.netctoss.entity.Cost;
 import org.hf520.netctoss.entity.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/fee")
+@Transactional(readOnly = true)
 public class FeeListController {
     @Resource
     private CostMapperDao dao;
